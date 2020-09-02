@@ -15,6 +15,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', 'EmployeesController@read')->name('employees');
+Route::post('/', 'EmployeesController@add');
+Route::get('/del/{id}/', 'EmployeesController@delete')->name('delete_employee');
 
 
 Route::get('/projects', 'ProjectsController@read')->name('projects');
+Route::post('/projects', 'ProjectsController@add');
+Route::get('/projects/del/{id}/', 'ProjectsController@delete')->name('delete_project');

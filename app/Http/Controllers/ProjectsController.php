@@ -11,4 +11,27 @@ class ProjectsController extends Controller
         return view('projects', ['projects' => \App\Projects::all()]);
     }
 
+    public function add(Request $request)
+    {
+        // $this->validate($request, [
+        //     // [Dėmesio] validacijoje unique turi būti nurodytas teisingas lentelės pavadinimas!
+        //     // galime pažiūrėti, kas bus jei bus neteisingas
+        //        'name' => 'required',
+        //        'surname' => 'required'
+        //    ]);   
+        $project = new \App\Projects();
+        $project->project_name = $request['newProjectName'];
+        $project->deadline = $request['newProjectDeadline'];
+        $project->save();
+        return redirect(route('projects'));
+        //  ($employee->save() !== 1) ? 
+        //     redirect(route('home'))->with('status_succereturnss', 'New employee added!') : 
+        //     redirect(route('home'))->with('status_error', 'Employee couldn\' be added!');
+    }
+
+    public function delete($id)
+    {
+        \App\Projects::destroy($id);
+        return redirect(route('projects'));
+    }
 }
