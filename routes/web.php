@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'EmployeesController@read');
+Route::get('/', 'EmployeesController@read')->name('employees');
 
 
-Route::get('/projects', 'ProjectsController@read');
+Route::get('/projects', 'ProjectsController@read')->name('projects');

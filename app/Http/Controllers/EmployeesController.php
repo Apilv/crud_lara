@@ -8,7 +8,7 @@ class EmployeesController extends Controller
 {
     public function read()
     {
-        return view('employees', ['key' => \App\Employees::all()]);
+        return view('employees', ['employees' => \App\Employees::all()]);
     }
 
 }
