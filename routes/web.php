@@ -17,9 +17,19 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'EmployeesController@read')->name('employees');
 Route::post('/', 'EmployeesController@add');
 Route::get('/del/{id}/', 'EmployeesController@delete')->name('delete_employee');
-Route::get('/update/{id}/', 'EmployeesController@update')->name('update_employee');
 
+Route::get('/update/{id}/', function ($id) {
+    $employee = \App\Employees::find($id);
+    return redirect()->route('employees', ['findEmployee' => ['id' => $employee->id, 'name' => $employee->name]]);
+})->name('findEmployee');
+Route::put('editSelected/{id}/', 'EmployeesController@update')->name('employee.update');
 
 Route::get('/projects', 'ProjectsController@read')->name('projects');
 Route::post('/projects', 'ProjectsController@add');
 Route::get('/projects/del/{id}/', 'ProjectsController@delete')->name('delete_project');
+
+Route::get('/update/{id}/', function ($id) {
+    $project = \App\Projects::find($id);
+    return redirect()->route('projects', ['findProject' => ['id' => $project->id, 'name' => $project->project_name, 'deadline' => $project->deadline]]);
+})->name('findProject');
+Route::put('editProject/{id}/', 'ProjectsController@update')->name('project.update');

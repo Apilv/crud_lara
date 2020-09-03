@@ -34,4 +34,5 @@ class ProjectsController extends Controller
         \App\Projects::destroy($id);
         return redirect(route('projects'));
     }
+
 }

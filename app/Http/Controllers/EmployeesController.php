@@ -36,18 +36,12 @@ class EmployeesController extends Controller
         return redirect(route('employees'));
     }
 
+
     public function update($id, Request $request)
     {
-        // [Dėmesio] validacijoje unique turi būti nurodytas teisingas lentelės pavadinimas!
-        // galime pažiūrėti, kas bus jei bus neteisingas
-        $this->validate($request, [
-            'name' => 'required|unique:blogposts,title|max:5'
-        ]);
-        $bp = \App\Employees::find($id);
-        $bp->name = $request['title'];
-        $bp->text = $request['text'];
-        return ($bp->save() !== 1) ?
-            redirect('/posts/' . $id)->with('status_success', 'Post updated!') :
-            redirect('/posts/' . $id)->with('status_error', 'Post was not updated!');
+        $employee = \App\Employees::find($id);
+        $employee->name = $request['ufname'];
+        $employee->save();
+        return redirect(route('employees'));
     }
 }
