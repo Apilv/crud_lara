@@ -12,8 +12,8 @@
         <td>{{$value['id']}}</td>
         <td>{{$value['name']}}</td>
         <td><a href="{{route('delete_employee', $value['id'])}}">Delete</a>
-        <a href="{{route('findEmployee', $value['id'])}}">Update</a>
             <a href="?addEmployee">Add</a>
+            <a href="{{route('findEmployee', $value['id'])}}">Update</a>
         </td>
     </tr>
     @endforeach
