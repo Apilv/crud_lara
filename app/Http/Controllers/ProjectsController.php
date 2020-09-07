@@ -35,4 +35,13 @@ class ProjectsController extends Controller
         return redirect(route('projects'));
     }
 
+    public function update($id, Request $request)
+    {
+        $projects = \App\Projects::find($id);
+        $projects->project_name = $request['ufname'];
+        $projects->deadline = $request['ufdate'];
+        $projects->save();
+        return redirect(route('projects'));
+    }
+
 }

@@ -38,10 +38,10 @@
     <form action="{{route('project.update',$_GET['findProject']['id'])}}" method="post" autocomplete="off">
         @method('PUT') @csrf
         <div class="form-group">
-            <label for="InputFname">Project Name</label>
-        <input class="form-control" id="InputFname" type="text" name="ufname" value="{{$_GET['findProject']['name']}}">
-        <label for="InputFname">Project Name</label>
-        <input class="form-control" id="InputFname" type="text" name="ufname" value="{{$_GET['findProject']['name']}}">
+            <div>Project Name</div>
+        <input class="form-control" type="text" name="ufname" value="{{$_GET['findProject']['name']}}">
+        <div>Project Deadline</div>
+        <input class="form-control" type="date" name="ufdate" value="{{$_GET['findProject']['deadline']}}">
         </div>
         <div class="form-group">
             <input class="btn btn-primary" type="submit" value="Submit">
