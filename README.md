@@ -1,4 +1,4 @@
-# CRUD project
+# CRUD project using Laravel
 
 ### Project features:
 ##### - Create new record
