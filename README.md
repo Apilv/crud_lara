@@ -9,6 +9,10 @@
 
 ## How to use it:
 Copy the repository URL and open it with the code editor, save the project to the root directory of your local server e.g.(AMPPS, XAMPP).
+In your root folder open cmd or bash and execute following:
+```
+php composer.phar install
+```
 
 ---------------------------------------------------------------------------------------------------------------------------------------------
 #### Creat project DB:
